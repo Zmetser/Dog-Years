@@ -8,11 +8,30 @@
 
 import Foundation
 
-enum DogType {
+enum DogType: Printable {
     case Small
     case Medium
     case Large
     case Giant
+    
+    var description: String {
+        switch self {
+        case .Small:  return "Small"
+        case .Medium: return "Medium"
+        case .Large:  return "Large"
+        case .Giant:  return "Giant"
+        }
+    }
+    
+    func getFromString(type: String) -> DogType {
+        switch type {
+        case "Small":  return .Small
+        case "Medium": return .Medium
+        case "Large":  return .Large
+        case "Giant":  return .Giant
+        default:       return .Medium
+        }
+    }
 }
 
 struct Dog {
